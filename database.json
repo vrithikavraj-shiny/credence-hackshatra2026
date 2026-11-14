@@ -1,0 +1,182 @@
+{
+    "users": [
+        {
+            "username": "admin",
+            "password": "scrypt:32768:8:1$yGrTfr6AeduCCI1E$668550b8533d0a3611e74a522dc7f1831436825d789772a5e92e83f0c1b7e5a1842616486449eace14ae5b7156ccffce78d8fe2e0dd5c6e1bc491d486fa4d4ce",
+            "role": "staff"
+        },
+        {
+            "username": "employer",
+            "password": "scrypt:32768:8:1$go6UGkDe6O55j4JO$e0af0b93cb481eb86d222de824f6d2dabb3739174a49f44fde3cb52518686bb260b04f7a839d08e6f8f4bc8e9b20f78335f3d096e2ee078c0a64207ba364ded1",
+            "role": "verifier"
+        }
+    ],
+    "certificates": [
+        {
+            "certificate_id": "NSU-C7BBA7D936",
+            "student_name": "priyanka",
+            "student_id": "1mp25cs076",
+            "qualification": "b tech",
+            "department": "cse",
+            "university": "Northstar University",
+            "graduation_year": 2027,
+            "issue_date": "2026-11-14",
+            "status": "ACTIVE",
+            "fingerprint": "9b0b17e5e43025545b3aacf02da28933154fa8ea07d250dcd845200b8792bd78",
+            "qr_code": "qr_codes/NSU-C7BBA7D936.png"
+        },
+        {
+            "certificate_id": "NSU-4F8B89A3A9",
+            "student_name": "pallavi",
+            "student_id": "1mp25cs064",
+            "qualification": "b tech",
+            "department": "cse",
+            "university": "Northstar University",
+            "graduation_year": 2027,
+            "issue_date": "2026-11-14",
+            "status": "REVOKED",
+            "fingerprint": "a8c0427d1e6f6a367fc9c3ff750eecea3e842aa937f29cc82abfa24a1539cdb7",
+            "qr_code": "images/NSU-4F8B89A3A9.png"
+        },
+        {
+            "certificate_id": "NSU-62F93F7BDB",
+            "student_name": "vrithika.v.raj",
+            "student_id": "1mp25cs107",
+            "qualification": "b tech",
+            "department": "cse",
+            "university": "Northstar University",
+            "graduation_year": 2027,
+            "issue_date": "2026-11-14",
+            "status": "ACTIVE",
+            "fingerprint": "fbde97e41eb7f4a6ef70941bbf6e2862251e2672383e7141782b828ba6ba99a2",
+            "qr_code": "images/NSU-62F93F7BDB.png"
+        },
+        {
+            "certificate_id": "NSU-3F7C7578D6",
+            "student_name": "shravya",
+            "student_id": "1mp25cs106",
+            "qualification": "b tech",
+            "department": "cse",
+            "university": "Northstar University",
+            "graduation_year": 2027,
+            "issue_date": "2026-11-14",
+            "status": "ACTIVE",
+            "fingerprint": "88a13ea9c4e8cfda8cda9ec9f319470660e926bf09ad46887abee35188589455",
+            "qr_code": "images/NSU-3F7C7578D6.png"
+        }
+    ],
+    "ledger": [
+        {
+            "block_id": 1,
+            "action": "ISSUE",
+            "certificate_id": "NSU-C7BBA7D936",
+            "timestamp": "2026-11-14T06:31:12.464678+00:00",
+            "previous_hash": "GENESIS",
+            "hash": "e4de723adac3a23b92ef942f4ee6fdc9c063b7a2b84fe618fbc3775fac9d8683"
+        },
+        {
+            "block_id": 2,
+            "action": "ISSUE",
+            "certificate_id": "NSU-4F8B89A3A9",
+            "timestamp": "2026-11-14T06:46:38.005885+00:00",
+            "previous_hash": "e4de723adac3a23b92ef942f4ee6fdc9c063b7a2b84fe618fbc3775fac9d8683",
+            "hash": "d824519245153e0beba20ae1458bc9957fcf3480bfe007ae2438f9bf7dc0be56"
+        },
+        {
+            "block_id": 3,
+            "action": "REVOKE",
+            "certificate_id": "NSU-4F8B89A3A9",
+            "timestamp": "2026-11-14T07:00:02.681821+00:00",
+            "previous_hash": "d824519245153e0beba20ae1458bc9957fcf3480bfe007ae2438f9bf7dc0be56",
+            "hash": "db29bc9a9718b6ae2311e10a2365eb78ffb79005ab47ac6bdb3a76b57653f543"
+        },
+        {
+            "block_id": 4,
+            "action": "VERIFY",
+            "certificate_id": "NSU-4F8B89A3A9",
+            "timestamp": "2026-11-14T07:14:28.622793+00:00",
+            "previous_hash": "db29bc9a9718b6ae2311e10a2365eb78ffb79005ab47ac6bdb3a76b57653f543",
+            "hash": "f6b092ad479ba4ca1a41d427747da7dbc0bac71020717468a04dfe172421bdf2"
+        },
+        {
+            "block_id": 5,
+            "action": "VERIFY",
+            "certificate_id": "NSU-4F8B89A3A9",
+            "timestamp": "2026-11-14T07:14:46.820215+00:00",
+            "previous_hash": "f6b092ad479ba4ca1a41d427747da7dbc0bac71020717468a04dfe172421bdf2",
+            "hash": "f91d45f01e19ab5f8d475be9c743e838bc7529deaff1fefd39e2f88bb37699d6"
+        },
+        {
+            "block_id": 6,
+            "action": "VERIFY",
+            "certificate_id": "NSU-4F8B89A3A9",
+            "timestamp": "2026-11-14T07:15:44.688793+00:00",
+            "previous_hash": "f91d45f01e19ab5f8d475be9c743e838bc7529deaff1fefd39e2f88bb37699d6",
+            "hash": "03288cb21bddf8f3055e1fced4c708a659be8332559c14f414e23b489e655a7c"
+        },
+        {
+            "block_id": 7,
+            "action": "VERIFY",
+            "certificate_id": "NSU-4F8B89A3A9",
+            "timestamp": "2026-11-14T07:18:40.988407+00:00",
+            "previous_hash": "03288cb21bddf8f3055e1fced4c708a659be8332559c14f414e23b489e655a7c",
+            "hash": "cb01f663dc4a5a0eeca702d531413392b09d4dfc6e58bb34ec3747f4711553c7"
+        },
+        {
+            "block_id": 8,
+            "action": "VERIFY",
+            "certificate_id": "NSU-C7BBA7D936",
+            "timestamp": "2026-11-14T07:28:32.509004+00:00",
+            "previous_hash": "cb01f663dc4a5a0eeca702d531413392b09d4dfc6e58bb34ec3747f4711553c7",
+            "hash": "5a2a595ececc88a414a437fb5499faada22a087d7e651a5181e5917219814009"
+        },
+        {
+            "block_id": 9,
+            "action": "VERIFY",
+            "certificate_id": "NSU-C7BBA7D936",
+            "timestamp": "2026-11-14T07:32:46.541408+00:00",
+            "previous_hash": "5a2a595ececc88a414a437fb5499faada22a087d7e651a5181e5917219814009",
+            "hash": "9b2deda3f200e42caf5c231bf6c466530165e8ff798ff8b4913ba3e759b64bcc"
+        },
+        {
+            "block_id": 10,
+            "action": "ISSUE",
+            "certificate_id": "NSU-62F93F7BDB",
+            "timestamp": "2026-11-14T07:58:42.278763+00:00",
+            "previous_hash": "9b2deda3f200e42caf5c231bf6c466530165e8ff798ff8b4913ba3e759b64bcc",
+            "hash": "20f2f002503ca4fedbb37c5beace5a679bfd74b0419be475d5e6ee4ed35d8f81"
+        },
+        {
+            "block_id": 11,
+            "action": "VERIFY",
+            "certificate_id": "NSU-62F93F7BDB",
+            "timestamp": "2026-11-14T07:59:00.300431+00:00",
+            "previous_hash": "20f2f002503ca4fedbb37c5beace5a679bfd74b0419be475d5e6ee4ed35d8f81",
+            "hash": "1e544b8fca269a5545b5a9bf751a844410917cdbe2f4a07ff7f624f90f4849bf"
+        },
+        {
+            "block_id": 12,
+            "action": "ISSUE",
+            "certificate_id": "NSU-3F7C7578D6",
+            "timestamp": "2026-11-14T08:04:33.108131+00:00",
+            "previous_hash": "1e544b8fca269a5545b5a9bf751a844410917cdbe2f4a07ff7f624f90f4849bf",
+            "hash": "4f8546916f2b74bb7b423e72a8bcf554089973fc101d5a1d9b98d33924c27b99"
+        },
+        {
+            "block_id": 13,
+            "action": "VERIFY",
+            "certificate_id": "NSU-4F8B89A3A9",
+            "timestamp": "2026-11-14T08:04:44.070137+00:00",
+            "previous_hash": "4f8546916f2b74bb7b423e72a8bcf554089973fc101d5a1d9b98d33924c27b99",
+            "hash": "0b7b8872850f004aa0a0f4507fbaa718c2d4f3d27085c28de923f9697d96703e"
+        },
+        {
+            "block_id": 14,
+            "action": "VERIFY",
+            "certificate_id": "NSU-3F7C7578D6",
+            "timestamp": "2026-11-14T08:04:50.933074+00:00",
+            "previous_hash": "0b7b8872850f004aa0a0f4507fbaa718c2d4f3d27085c28de923f9697d96703e",
+            "hash": "37ef682c00bdb7c382197b3176baa22315bc06d5461b1f6bedfb360457e91b0f"
+        }
+    ]
+}

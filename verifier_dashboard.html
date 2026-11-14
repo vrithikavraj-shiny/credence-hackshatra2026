@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employer Portal | CREDENCE</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <h2>CREDENCE</h2>
+    <a href="/logout" class="nav-button">Logout</a>
+</nav>
+
+<section class="about">
+
+    <span class="section-label">
+        NORTHSTAR UNIVERSITY
+    </span>
+
+    <h2>Employer Verification Portal</h2>
+
+    <p>Verify academic credentials securely and instantly.</p>
+
+    <div class="certificate-form">
+
+        <h3>Verify Certificate</h3>
+
+        <form action="/verify-certificate" method="GET">
+
+            <label>Certificate ID</label>
+
+            <input
+                type="text"
+                name="certificate_id"
+                placeholder="Example: NSU-A83F91C7D2"
+                required
+            >
+
+            <button type="submit" class="login-submit">
+                Verify Certificate
+            </button>
+
+        </form>
+
+<br><br>
+
+<a href="/qr-scanner" class="primary-btn">
+    Scan QR Code
+</a>
+
+
+    </div>
+
+    <p>SHA-256 Security | QR Verification | Tamper-Evident Ledger</p>
+
+</section>
+
+</body>
+</html>

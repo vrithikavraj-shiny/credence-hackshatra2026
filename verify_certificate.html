@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Certificate Verification | CREDENCE</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <h2>CREDENCE</h2>
+    <a href="/" class="nav-button">Home</a>
+</nav>
+
+<section class="about">
+
+    <span class="section-label">NORTHSTAR UNIVERSITY</span>
+
+    <h1>Certificate Verification</h1>
+
+    {% if certificate %}
+
+        <h2 style="color:#77d9a1;">
+            ✓ CERTIFICATE FOUND
+        </h2>
+
+        <div class="certificate-form">
+
+            <p><strong>Student Name:</strong>
+            {{ certificate.student_name }}</p>
+
+            <p><strong>Student ID:</strong>
+            {{ certificate.student_id }}</p>
+
+            <p><strong>Qualification:</strong>
+            {{ certificate.qualification }}</p>
+
+            <p><strong>Department:</strong>
+            {{ certificate.department }}</p>
+
+            <p><strong>University:</strong>
+            {{ certificate.university }}</p>
+
+            <p><strong>Certificate ID:</strong>
+            {{ certificate.certificate_id }}</p>
+
+            <p><strong>Issue Date:</strong>
+            {{ certificate.issue_date }}</p>
+
+            <p><strong>SHA-256 Fingerprint:</strong></p>
+
+            <p style="word-break:break-all;">
+                {{ certificate.fingerprint }}
+            </p>
+
+            <h2 style="color:
+            {% if certificate.status == 'ACTIVE' %}
+                #77d9a1
+            {% else %}
+                #ff7777
+            {% endif %};">
+                STATUS: {{ certificate.status }}
+            </h2>
+
+        </div>
+
+    {% else %}
+
+        <h2 style="color:#ff7777;">
+            Certificate Not Found
+        </h2>
+
+        <p>This certificate does not exist in our registry.</p>
+
+    {% endif %}
+
+</section>
+
+</body>
+</html>

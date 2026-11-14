@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Certificate Registry | CREDENCE</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <h2>CREDENCE</h2>
+    <a href="/staff-dashboard" class="nav-button">Dashboard</a>
+</nav>
+
+<section class="about">
+
+    <span class="section-label">NORTHSTAR UNIVERSITY</span>
+
+    <h2>Certificate Registry</h2>
+
+    <p>View and manage all issued academic certificates.</p>
+
+    <form method="GET" action="/certificate-registry"
+          class="certificate-form">
+
+        <label>Search Certificate</label>
+
+        <input
+            type="text"
+            name="search"
+            placeholder="Enter Student Name or Certificate ID"
+            value="{{ search }}"
+        >
+
+        <button type="submit" class="login-submit">
+            Search Certificates
+        </button>
+
+    </form>
+
+    <div style="overflow-x:auto;">
+
+        <table class="registry-table">
+
+            <thead>
+                <tr>
+                    <th>Certificate ID</th>
+                    <th>Student Name</th>
+                    <th>Qualification</th>
+                    <th>Issue Date</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for cert in certificates %}
+
+                <tr>
+                    <td>{{ cert.certificate_id }}</td>
+
+                    <td>{{ cert.student_name }}</td>
+
+                    <td>{{ cert.qualification }}</td>
+
+                    <td>{{ cert.issue_date }}</td>
+
+                    <td>
+                        <span class="{% if cert.status == 'ACTIVE' %}active-status{% else %}revoked-status{% endif %}">
+                            {{ cert.status }}
+                        </span>
+                    </td>
+
+                    <td>
+                        <a href="{{ url_for('verify_certificate', certificate_id=cert.certificate_id) }}">
+                            View
+                        </a>
+
+                        {% if cert.status == 'ACTIVE' %}
+                        <form method="POST"
+                              action="{{ url_for('revoke_certificate', certificate_id=cert.certificate_id) }}"
+                              onsubmit="return confirm('Are you sure you want to revoke this certificate?');">
+
+                            <button type="submit" class="revoke-button">
+                                Revoke
+                            </button>
+
+                        </form>
+                        {% endif %}
+                    </td>
+
+                </tr>
+
+                {% else %}
+
+                <tr>
+                    <td colspan="6">No certificates found.</td>
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+</body>
+</html>

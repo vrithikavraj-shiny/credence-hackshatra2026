@@ -1,0 +1,470 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #071426;
+    color: #ffffff;
+}
+
+.navbar {
+    height: 85px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 8%;
+    background: #0b1b30;
+    border-bottom: 1px solid #23364d;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    color: #ffffff;
+}
+
+.logo span {
+    color: #d9b56d;
+}
+
+.nav-links a {
+    color: #c4ccda;
+    text-decoration: none;
+    margin: 0 18px;
+    font-size: 14px;
+}
+
+.nav-links a:hover {
+    color: #d9b56d;
+}
+
+.nav-button {
+    text-decoration: none;
+    color: #071426;
+    background: #d9b56d;
+    padding: 12px 23px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.hero {
+    min-height: 600px;
+    padding: 100px 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.hero-content {
+    max-width: 580px;
+}
+
+.university,
+.section-label {
+    color: #d9b56d;
+    letter-spacing: 4px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.hero h1 {
+    font-size: 68px;
+    line-height: 1.1;
+    margin-top: 25px;
+}
+
+.hero h1 span {
+    color: #d9b56d;
+}
+
+.hero-subtitle {
+    font-size: 25px;
+    margin-top: 12px;
+}
+
+.description {
+    color: #aab8c9;
+    line-height: 1.8;
+    margin-top: 22px;
+    max-width: 480px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.primary-btn,
+.secondary-btn {
+    padding: 16px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.primary-btn {
+    background: #d9b56d;
+    color: #071426;
+}
+
+.secondary-btn {
+    border: 1px solid #d9b56d;
+    color: #ffffff;
+}
+
+.primary-btn:hover {
+    background: #ffffff;
+}
+
+.secondary-btn:hover {
+    background: #d9b56d;
+    color: #071426;
+}
+
+.trust {
+    color: #8494a8;
+    font-size: 11px;
+    margin-top: 35px;
+    line-height: 2;
+}
+
+.hero-card {
+    width: 350px;
+    padding: 30px;
+    background: #10243d;
+    border: 1px solid #34465b;
+    border-radius: 12px;
+    box-shadow: 0 15px 50px #00000055;
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    font-size: 9px;
+    color: #aab8c9;
+}
+
+.verified {
+    color: #77d9a1;
+}
+
+.certificate-icon {
+    font-size: 65px;
+    color: #d9b56d;
+    text-align: center;
+    margin: 30px 0;
+}
+
+.hero-card h2,
+.hero-card > p {
+    text-align: center;
+}
+
+.hero-card h2 {
+    font-size: 20px;
+}
+
+.hero-card > p {
+    color: #aab8c9;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+.card-line {
+    height: 1px;
+    background: #34465b;
+    margin: 25px 0;
+}
+
+.certificate-details {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 20px 0;
+    font-size: 10px;
+}
+
+.certificate-details span {
+    color: #8b9caf;
+}
+
+.certificate-details strong {
+    font-size: 10px;
+    color: #d9b56d;
+}
+
+.about,
+.features {
+    padding: 85px 10%;
+    text-align: center;
+    background: #0b1b30;
+}
+
+.about h2,
+.features h2 {
+    font-size: 35px;
+    margin: 20px 0;
+}
+
+.about p {
+    max-width: 650px;
+    margin: auto;
+    line-height: 1.8;
+    color: #aab8c9;
+}
+
+.features {
+    background: #071426;
+}
+
+.feature-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-top: 45px;
+}
+
+.feature-box {
+    width: 250px;
+    padding: 30px;
+    background: #10243d;
+    border: 1px solid #34465b;
+    border-radius: 8px;
+}
+
+.feature-box h3 {
+    color: #d9b56d;
+    margin-bottom: 15px;
+}
+
+.feature-box p {
+    color: #aab8c9;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+footer {
+    padding: 30px;
+    text-align: center;
+    color: #8494a8;
+    background: #0b1b30;
+    font-size: 13px;
+}
+
+footer p {
+    margin-top: 10px;
+}
+
+@media (max-width: 800px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero-card {
+        max-width: 100%;
+    }
+}
+
+/* CREDENCE LOGIN PAGES */
+
+.login-body {
+    min-height: 100vh;
+    background: #071426;
+}
+
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px;
+}
+
+.back-link {
+    color: #d9b56d;
+    text-decoration: none;
+    margin-bottom: 25px;
+    align-self: center;
+}
+
+.login-box {
+    width: 100%;
+    max-width: 430px;
+    padding: 40px;
+    background: #10243d;
+    border: 1px solid #34465b;
+    border-radius: 12px;
+    box-shadow: 0 15px 50px #00000055;
+}
+
+.login-logo {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.login-logo span {
+    color: #d9b56d;
+}
+
+.login-label {
+    color: #d9b56d;
+    text-align: center;
+    letter-spacing: 3px;
+    font-size: 11px;
+}
+
+.login-box h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 30px;
+}
+
+.login-description {
+    color: #aab8c9;
+    text-align: center;
+    margin: 15px 0 30px;
+    font-size: 14px;
+}
+
+.login-box label {
+    display: block;
+    margin: 20px 0 9px;
+    color: #d9b56d;
+    font-size: 14px;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 14px;
+    background: #071426;
+    border: 1px solid #34465b;
+    border-radius: 5px;
+    color: white;
+    outline: none;
+}
+
+.login-box input:focus {
+    border-color: #d9b56d;
+}
+
+.login-submit {
+    width: 100%;
+    margin: 30px 0 10px;
+    padding: 15px;
+    background: #d9b56d;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.login-footer {
+    color: #8494a8;
+    font-size: 11px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.error-message {
+    color: #ff9b9b;
+    background: #3c2028;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+/* CERTIFICATE FORM */
+
+.certificate-form {
+    max-width: 550px;
+    margin: 35px auto;
+    text-align: left;
+    padding: 30px;
+    background: #10243d;
+    border: 1px solid #34465b;
+    border-radius: 10px;
+}
+
+.certificate-form label {
+    display: block;
+    color: #d9b56d;
+    margin: 18px 0 8px;
+}
+
+.certificate-form input {
+    width: 100%;
+    padding: 13px;
+    background: #071426;
+    border: 1px solid #34465b;
+    border-radius: 5px;
+    color: white;
+}
+
+.certificate-form input:focus {
+    outline: none;
+    border-color: #d9b56d;
+}
+
+/* CREDENCE QR SCANNER */
+
+#reader {
+    width: 100%;
+    max-width: 450px;
+    margin: 20px auto;
+    border: 2px solid #d9b56d !important;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #071426;
+}
+
+#reader video {
+    border-radius: 8px;
+}
+
+#camera-message,
+#upload-message {
+    color: #d9b56d;
+    margin-top: 15px;
+    font-size: 14px;
+    text-align: center;
+}
+
+#qr-file {
+    margin: 15px 0;
+}
+
+.certificate-form hr {
+    border: 0;
+    border-top: 1px solid #34465b;
+    margin: 30px 0;
+}

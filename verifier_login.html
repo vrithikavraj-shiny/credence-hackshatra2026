@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifier Login | CREDENCE</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="login-body">
+
+<div class="login-container">
+
+    <a href="/" class="back-link">← Back to Home</a>
+
+    <div class="login-box">
+
+        <div class="login-logo">CREDENCE<span>.</span></div>
+
+        <p class="login-label">EMPLOYER PORTAL</p>
+
+        <h1>Verifier Login</h1>
+
+        <p class="login-description">
+            Verify academic credentials securely.
+        </p>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p class="error-message">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST" action="/verifier-login">
+
+            <label>Username</label>
+
+            <input
+                type="text"
+                name="username"
+                placeholder="Enter your username"
+                required
+            >
+
+            <label>Password</label>
+
+            <input
+                type="password"
+                name="password"
+                placeholder="Enter your password"
+                required
+            >
+
+            <button type="submit" class="login-submit">
+                Sign In →
+            </button>
+
+        </form>
+
+        <p class="login-footer">
+            Authorized Employers and Verifiers
+        </p>
+
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CREDENCE Ledger</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <h2>CREDENCE</h2>
+    <a href="/staff-dashboard" class="nav-button">
+        Dashboard
+    </a>
+</nav>
+
+<section class="about">
+
+    <span class="section-label">
+        NORTHSTAR UNIVERSITY
+    </span>
+
+    <h1>Blockchain Activity Ledger</h1>
+
+    <p>Review certificate transactions and ledger integrity.</p>
+
+    <div class="certificate-form">
+
+        <h2>Ledger Integrity Status</h2>
+
+        {% if integrity.valid %}
+
+            <h2 style="color:#77d9a1;">
+                ✓ LEDGER VERIFIED
+            </h2>
+
+            <p>No hash-chain inconsistencies detected.</p>
+
+        {% else %}
+
+            <h2 style="color:#ff7777;">
+                ⚠ TAMPERING DETECTED
+            </h2>
+
+            {% for error in integrity.errors %}
+                <p>{{ error }}</p>
+            {% endfor %}
+
+        {% endif %}
+
+        <p>
+            Total Transactions:
+            <strong>{{ integrity.total_blocks }}</strong>
+        </p>
+
+        <form action="/ledger" method="GET">
+            <button type="submit" class="login-submit">
+                Recheck Ledger Integrity
+            </button>
+        </form>
+
+    </div>
+
+    <h2>Transaction History</h2>
+
+    <div class="certificate-form">
+
+        {% if ledger %}
+
+            {% for block in ledger %}
+
+                <hr>
+
+                <h3>Block #{{ block.block_id }}</h3>
+
+                <p>
+                    <strong>Action:</strong>
+                    {{ block.action }}
+                </p>
+
+                <p>
+                    <strong>Certificate ID:</strong>
+                    {{ block.certificate_id }}
+                </p>
+
+                <p>
+                    <strong>Timestamp:</strong>
+                    {{ block.timestamp }}
+                </p>
+
+                <p>
+                    <strong>Previous Hash:</strong>
+                </p>
+
+                <p style="word-break:break-all;">
+                    {{ block.previous_hash }}
+                </p>
+
+                <p><strong>Block Hash:</strong></p>
+
+                <p style="word-break:break-all;">
+                    {{ block.hash }}
+                </p>
+
+            {% endfor %}
+
+        {% else %}
+
+            <p>No transactions recorded yet.</p>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+</body>
+</html>

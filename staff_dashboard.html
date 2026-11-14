@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Staff Dashboard | CREDENCE</title>
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <h2>CREDENCE</h2>
+        <a href="/logout" class="nav-button">Logout</a>
+    </nav>
+
+    <section class="about">
+        <span class="section-label">NORTHSTAR UNIVERSITY</span>
+        <h2>Welcome, {{ session.username }}!</h2>
+        <p>University Staff Dashboard</p>
+        <p>Manage academic certificates securely.</p>
+        <br>
+        <a href="/issue-certificate" class="primary-btn">
+            Issue Certificate
+        </a>
+        <br><br>
+
+<a href="/certificate-registry" class="primary-btn">
+    View Certificate Registry
+</a>
+        <a href="/ledger" class="secondary-btn">
+            View Ledger
+        </a>
+    </section>
+</body>
+</html>

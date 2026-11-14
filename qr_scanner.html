@@ -1,0 +1,221 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>QR Scanner | CREDENCE</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+
+    <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <h2>CREDENCE</h2>
+    <a href="/verifier-dashboard" class="nav-button">
+        Dashboard
+    </a>
+</nav>
+
+<section class="about">
+
+    <span class="section-label">NORTHSTAR UNIVERSITY</span>
+
+    <h1>QR Certificate Scanner</h1>
+
+    <p>Scan or upload a certificate QR code to verify its authenticity.</p>
+
+    <div class="certificate-form">
+
+        <h3>Option 1: Live Camera Scanner</h3>
+
+        <div id="reader"></div>
+
+        <button type="button"
+                class="login-submit"
+                id="start-camera">
+            Start Camera
+        </button>
+
+        <button type="button"
+                class="login-submit"
+                id="stop-camera">
+            Stop Camera
+        </button>
+
+        <p id="camera-message"></p>
+
+        <hr>
+
+        <h3>Option 2: Upload QR Code Image</h3>
+
+        <label>Select QR Code Image</label>
+
+        <input
+            type="file"
+            id="qr-file"
+            accept="image/png,image/jpeg,image/webp"
+        >
+
+        <button type="button"
+                class="login-submit"
+                id="scan-file">
+            Scan Uploaded QR
+        </button>
+
+        <p id="upload-message"></p>
+
+    </div>
+
+</section>
+
+<script>
+    const scanner = new Html5Qrcode("reader");
+
+    const cameraMessage =
+        document.getElementById("camera-message");
+
+    const uploadMessage =
+        document.getElementById("upload-message");
+
+    let cameraRunning = false;
+
+    function openVerificationPage(decodedText) {
+
+        let certificateId = "";
+
+        try {
+            const scannedURL = new URL(
+                decodedText,
+                window.location.origin
+            );
+
+            if (scannedURL.origin !== window.location.origin) {
+                throw new Error("Invalid QR code domain.");
+            }
+
+            const match = scannedURL.pathname.match(
+                /^\/verify\/([A-Za-z0-9-]+)$/
+            );
+
+            if (match) {
+                certificateId = match[1];
+            } else {
+                throw new Error("Invalid certificate QR code.");
+            }
+
+        } catch (error) {
+
+            cameraMessage.textContent =
+                "Invalid QR code. Please scan a CREDENCE certificate.";
+
+            uploadMessage.textContent =
+                "Invalid QR code. Please upload a CREDENCE certificate.";
+
+            return;
+        }
+
+        window.location.href =
+            "/verify/" + encodeURIComponent(certificateId);
+    }
+
+    document.getElementById("start-camera")
+    .addEventListener("click", async function () {
+
+        if (cameraRunning) return;
+
+        try {
+
+            cameraMessage.textContent =
+                "Starting camera...";
+
+            await scanner.start(
+                { facingMode: "environment" },
+                {
+                    fps: 10,
+                    qrbox: {
+                        width: 250,
+                        height: 250
+                    }
+                },
+                function(decodedText) {
+
+                    cameraMessage.textContent =
+                        "QR detected! Opening certificate...";
+
+                    scanner.stop().then(function() {
+                        cameraRunning = false;
+                        openVerificationPage(decodedText);
+                    });
+
+                }
+            );
+
+            cameraRunning = true;
+
+            cameraMessage.textContent =
+                "Camera is active. Point it at a QR code.";
+
+        } catch (error) {
+
+            cameraMessage.textContent =
+                "Camera unavailable. Check browser permissions.";
+
+        }
+    });
+
+    document.getElementById("stop-camera")
+    .addEventListener("click", async function () {
+
+        if (cameraRunning) {
+
+            await scanner.stop();
+
+            cameraRunning = false;
+
+            cameraMessage.textContent =
+                "Camera stopped.";
+        }
+    });
+
+    document.getElementById("scan-file")
+    .addEventListener("click", async function () {
+
+        const file =
+            document.getElementById("qr-file").files[0];
+
+        if (!file) {
+
+            uploadMessage.textContent =
+                "Please select a QR image first.";
+
+            return;
+        }
+
+        try {
+
+            uploadMessage.textContent =
+                "Reading QR image...";
+
+            const decodedText =
+                await scanner.scanFile(file, true);
+
+            openVerificationPage(decodedText);
+
+        } catch (error) {
+
+            uploadMessage.textContent =
+                "Could not read QR code. Try another clear image.";
+
+        }
+    });
+
+</script>
+
+</body>
+</html>

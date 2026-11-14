@@ -1,0 +1,113 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Issue Certificate | CREDENCE</title>
+
+    <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <h2>CREDENCE</h2>
+    <a href="/staff-dashboard" class="nav-button">Dashboard</a>
+</nav>
+
+<section class="about">
+
+    <span class="section-label">NORTHSTAR UNIVERSITY</span>
+
+    <h2>Issue New Certificate</h2>
+
+    <p>Enter the graduate's academic information below.</p>
+
+    {% with messages = get_flashed_messages() %}
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    {% endwith %}
+
+    <form method="POST" action="/issue-certificate"
+          class="certificate-form">
+
+        <label>Student Name</label>
+        <input type="text" name="student_name" required>
+
+        <label>Student ID</label>
+        <input type="text" name="student_id" required>
+
+        <label>Qualification</label>
+        <input type="text" name="qualification" required>
+
+        <label>Department</label>
+        <input type="text" name="department" required>
+
+        <label>University</label>
+        <input type="text" name="university"
+               value="Northstar University" required>
+
+        <label>Graduation Year</label>
+        <input type="number" name="graduation_year"
+               min="1900" max="2100" required>
+
+        <button type="submit" class="login-submit">
+            Generate Certificate
+        </button>
+
+    </form>
+
+    {% if success and certificate %}
+
+    <div class="certificate-form">
+
+        <h2 style="color:#d9b56d;">
+            Certificate Generated!
+        </h2>
+
+        <p><strong>Student:</strong>
+        {{ certificate.student_name }}</p>
+
+        <p><strong>Certificate ID:</strong>
+        {{ certificate.certificate_id }}</p>
+
+        <p><strong>Qualification:</strong>
+        {{ certificate.qualification }}</p>
+
+        <p><strong>University:</strong>
+        {{ certificate.university }}</p>
+
+        <p><strong>Issue Date:</strong>
+        {{ certificate.issue_date }}</p>
+
+        <p><strong>Status:</strong>
+        {{ certificate.status }}</p>
+
+        <p><strong>SHA-256 Fingerprint:</strong></p>
+
+        <p style="word-break:break-all;">
+        {{ certificate.fingerprint }}
+        </p>
+
+        <h3>Certificate QR Code</h3>
+
+        <img
+            src="{{ url_for('static', filename=certificate.qr_code) }}"
+            alt="Certificate QR Code"
+            width="220"
+            style="display:block; margin:20px auto;"
+        >
+
+    </div>
+
+    {% endif %}
+
+</section>
+
+</body>
+</html>
+```
